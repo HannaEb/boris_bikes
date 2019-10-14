@@ -4,7 +4,6 @@ describe Van do
 
   describe 'initialization' do
     subject { Van.new }
-    # let(:bike) { Bike.new }
     it 'defaults capacity' do
       described_class::DEFAULT_CAPACITY.times do
         subject.collect(double :bike)
@@ -21,7 +20,7 @@ describe Van do
 
   # it 'can collect bikes' do
   #   bike = double(:bike)
-  #   expect(subject.collect(bike)).to eq bike
+  #   expect(subject.collect(bike)).to eq [bike]
   # end
 
   describe '#collect' do
@@ -31,18 +30,18 @@ describe Van do
     end
   end
 
-  it { is_expected.to respond_to(:unload) }
+  it { is_expected.to respond_to(:unload_bike) }
 
   it 'unloads bikes' do
     bike = double(:bike)
     subject.collect(bike)
-    expect(subject.unload).to be bike
+    expect(subject.unload_bike).to be bike
   end
 
   describe '#unload' do
     it 'raises an error when the van is empty' do
-      expect { subject.unload }.to raise_error 'Van is empty'
+      expect { subject.unload_bike }.to raise_error 'Van is empty'
     end
-  end 
+  end
 
 end

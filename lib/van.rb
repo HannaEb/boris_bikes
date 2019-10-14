@@ -14,7 +14,7 @@ class Van
     bikes << bike
   end
 
-  def unload
+  def unload_bike
     fail 'Van is empty' if empty?
     bikes.each { |bike| return bike }
   end

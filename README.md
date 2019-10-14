@@ -4,3 +4,4 @@
 # Can specify larger capacity when necessary
 # Van can unload
 # Raises error if van empty
+# Garage accepts bikes
