@@ -11,7 +11,12 @@ class Van
 
   def collect(bike)
     fail 'Van full' if full?
-    @bikes << bike
+    bikes << bike
+  end
+
+  def unload
+    fail 'Van is empty' if empty?
+    bikes.each { |bike| return bike }
   end
 
   private
@@ -19,8 +24,11 @@ class Van
   attr_reader :bikes
 
   def full?
-    @bikes.count >= DEFAULT_CAPACITY
+    bikes.count >= DEFAULT_CAPACITY
   end
 
+  def empty?
+    bikes.empty?
+  end
 
 end

@@ -31,6 +31,18 @@ describe Van do
     end
   end
 
+  it { is_expected.to respond_to(:unload) }
 
+  it 'unloads bikes' do
+    bike = double(:bike)
+    subject.collect(bike)
+    expect(subject.unload).to be bike
+  end
+
+  describe '#unload' do
+    it 'raises an error when the van is empty' do
+      expect { subject.unload }.to raise_error 'Van is empty'
+    end
+  end 
 
 end

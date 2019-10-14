@@ -13,7 +13,6 @@ class DockingStation
     fail 'No bikes available' if empty?
     bikes.each { |bike| return bike if bike.working? }
     raise 'No working bikes available'
-    #@bikes.pop
   end
 
   def dock(bike)
@@ -26,13 +25,11 @@ class DockingStation
   attr_reader :bikes
 
   def full?
-    @bikes.count >= capacity
+    bikes.count >= capacity
   end
 
   def empty?
-    @bikes.empty?
+    bikes.empty?
   end
-
-
 
 end
