@@ -18,11 +18,6 @@ describe Van do
 
   it { is_expected.to respond_to(:collect).with(1).argument }
 
-  # it 'can collect bikes' do
-  #   bike = double(:bike)
-  #   expect(subject.collect(bike)).to eq [bike]
-  # end
-
   describe '#collect' do
     it 'raises an error when full' do
       subject.capacity.times { subject.collect(double :bike) }
@@ -38,7 +33,7 @@ describe Van do
     expect(subject.unload_bike).to be bike
   end
 
-  describe '#unload' do
+  describe '#unload_bike' do
     it 'raises an error when the van is empty' do
       expect { subject.unload_bike }.to raise_error 'Van is empty'
     end
