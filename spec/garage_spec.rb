@@ -39,4 +39,13 @@ describe Garage do
     end
   end
 
+  it { is_expected.to respond_to(:repair_bike) }
+
+  # it 'can repair bikes' do
+  #   bike = double(:bike, working?: false)
+  #   subject.repair_bike
+  #   expect(bike.working?).to be_truthy
+  # end
+
+
 end

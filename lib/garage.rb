@@ -19,6 +19,10 @@ class Garage
     bikes.each { |bike| return bike }
   end
 
+  def repair_bike
+    bikes.each { |bike | bike.repair }
+  end
+
   private
 
   attr_reader :bikes
