@@ -3,6 +3,7 @@ require_relative 'bike'
 class Garage
   DEFAULT_CAPACITY = 50
   attr_reader :capacity
+  attr_reader :bikes
 
   def initialize(capacity=DEFAULT_CAPACITY)
     @capacity = capacity
@@ -20,12 +21,12 @@ class Garage
   end
 
   def repair_bike
-    bikes.each { |bike | bike.repair }
+    bikes.each { |bike| bike.repair }
   end
 
   private
 
-  attr_reader :bikes
+
 
   def full?
     bikes.count >= DEFAULT_CAPACITY

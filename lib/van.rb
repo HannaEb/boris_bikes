@@ -3,15 +3,19 @@ require_relative 'bike'
 class Van
   DEFAULT_CAPACITY = 10
   attr_reader :capacity
+  attr_reader :bikes
 
   def initialize(capacity = DEFAULT_CAPACITY)
     @capacity = capacity
     @bikes = []
   end
 
-  def collect(bike)
+  def collect_bike(station)
     fail 'Van full' if full?
-    bikes << bike
+    #bikes << bike
+    while !full? do
+      bikes << station.release_broken_bikes
+    end
   end
 
   def unload_bike
@@ -20,8 +24,6 @@ class Van
   end
 
   private
-
-  attr_reader :bikes
 
   def full?
     bikes.count >= DEFAULT_CAPACITY

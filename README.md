@@ -11,3 +11,10 @@
 # Garage can specify larger capacity
 # Raises error when full or empty
 # Garage can fix bikes
+
+# Station releases broken bikes
+# Van collects broken bikes from Station (not in station anymore)
+# Van releases broken bikes
+# Garage accepts broken bikes (not in van anymore)
+# Garage releases fixed bikes
+# Van collects fixed bikes (not in garage anymore)
