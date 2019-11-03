@@ -12,9 +12,9 @@ class Van
 
   def collect_bike(station)
     fail 'Van full' if full?
-    #bikes << bike
+    #need to stop collecting when no more broken bikes in station
     while !full? do
-      bikes << station.release_broken_bikes
+      bikes << station.release_broken_bike
     end
   end
 
