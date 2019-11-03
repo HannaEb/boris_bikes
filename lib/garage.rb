@@ -18,9 +18,9 @@ class Garage
   def release_bike
     fail 'Garage is empty' if empty?
     bike = bikes.find { |bike| bike.working? }
+    raise 'No working bikes available'
     bikes.delete(bike)
     return bikes
-    raise 'No working bikes available'
   end
 
   def repair_bike

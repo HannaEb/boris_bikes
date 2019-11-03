@@ -19,17 +19,17 @@ class DockingStation
   def release_bike
     fail 'No bikes available' if empty?
     bike = bikes.find { |bike| bike.working? }
+    raise 'No working bikes available'
     bikes.delete(bike)
     return bike
-    raise 'No working bikes available'
   end
 
   def release_broken_bike
     fail 'No bikes available' if empty?
     bike = bikes.find { |bike| !bike.working? }
+    raise 'No broken bikes available'
     bikes.delete(bike)
     return bike
-    raise 'No broken bikes available'
   end
 
   private

@@ -28,7 +28,7 @@ describe Garage do
   it { is_expected.to respond_to(:release_bike) }
 
   it 'releases bikes' do
-    bike = double(:bike)
+    bike = double(:bike, working?: true)
     subject.accept(bike)
     expect(subject.release_bike).to be bike
   end
