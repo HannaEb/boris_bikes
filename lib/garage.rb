@@ -11,6 +11,7 @@ class Garage
   end
 
   def accept(bike)
+    #needs to accept bikes from van
     fail "Garage full" if full?
     bikes << bike
   end
@@ -28,8 +29,6 @@ class Garage
   end
 
   private
-
-
 
   def full?
     bikes.count >= DEFAULT_CAPACITY

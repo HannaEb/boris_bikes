@@ -16,6 +16,7 @@ class Van
     while !full? do
       bikes << station.release_broken_bike
     end
+    # bikes << station.release_broken_bike
   end
 
   def unload_bike

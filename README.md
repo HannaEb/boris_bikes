@@ -1,20 +1,32 @@
-# Van can collect bikes
-# Van doesn't accept more than capacity
-# Van has default capacity of 10 bikes
-# Can specify larger capacity when necessary
-# Van can unload
-# Raises error if van empty
-# Garage accepts bikes
-# Garage releases bikes
-# Garage doesn't accept more than capacity
-# Garage has default capacity of 50 bikes
-# Garage can specify larger capacity
-# Raises error when full or empty
-# Garage can fix bikes
+Boris Bikes
+===========
 
-# Station releases broken bikes
-# Van collects broken bikes from Station (not in station anymore)
-# Van releases broken bikes
-# Garage accepts broken bikes (not in van anymore)
-# Garage releases fixed bikes
-# Van collects fixed bikes (not in garage anymore)
+
+Motivation
+----------
+Project at Makers Academy. The goal is to build a program that emulates all the docking stations, bikes, and infrastructure required to make London's Boris Bikes work.
+
+
+Installation
+------------
+```
+$ git clone git@github.com:HannaEb/boris_bikes.git
+$ cd boris_bikes
+$bundle
+```
+
+
+Tests
+-----
+This project is test-driven with RSpec. To run all the tests, simply run `rspec` in your terminal.
+
+
+Tools
+-----
+* Ruby
+* Rspec
+
+
+Author
+------
+Hanna Eberhoefer
