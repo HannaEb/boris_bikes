@@ -16,10 +16,9 @@ class Garage
     bikes << bike
   end
 
-  def release_bike
-    fail 'Garage is empty' if empty?
+  def bike_to_collect
+    raise 'No working bikes' unless working_bikes.any?
     bike = bikes.find { |bike| bike.working? }
-    raise 'No working bikes available'
     bikes.delete(bike)
     return bikes
   end
@@ -31,11 +30,15 @@ class Garage
   private
 
   def full?
-    bikes.count >= DEFAULT_CAPACITY
+    bikes.count >= capacity
   end
 
   def empty?
     bikes.empty?
+  end
+
+  def working_bikes
+    bikes.select { |bike| bike.working? }
   end
 
 end

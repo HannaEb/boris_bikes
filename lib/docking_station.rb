@@ -3,8 +3,7 @@ require_relative 'bike'
 class DockingStation
   DEFAULT_CAPACITY = 20
   attr_reader :capacity
-  attr_accessor :bikes
-  #attr_reader :broken_bikes
+  attr_reader :bikes
 
   def initialize(capacity=DEFAULT_CAPACITY)
     @capacity = capacity
@@ -24,16 +23,12 @@ class DockingStation
     return bike
   end
 
-  def release_broken_bike
-    fail 'No bikes available' if empty?
+  def bike_to_collect
+    raise 'No broken bikes' unless broken_bikes.any?
     bike = bikes.find { |bike| !bike.working? }
     bikes.delete(bike)
     return bike
-  end
-
-  def broken_bikes
-    bikes.select { |bike| !bike.working? }
-  end
+  end 
 
   private
 
@@ -43,6 +38,10 @@ class DockingStation
 
   def empty?
     bikes.empty?
+  end
+
+  def broken_bikes
+    bikes.select { |bike| !bike.working? }
   end
 
 
