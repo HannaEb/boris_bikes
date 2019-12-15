@@ -5,21 +5,21 @@ class Van
   attr_reader :capacity
   attr_reader :bikes
 
-  def initialize(capacity = DEFAULT_CAPACITY)
+  def initialize(capacity=DEFAULT_CAPACITY)
     @capacity = capacity
     @bikes = []
   end
 
   def collect_bike(location)
     fail 'Van full' if full?
-    while !full?
-      bikes << location.bike_to_collect
-    end
+    bikes << location.release_bike_to_collect
   end
 
   def unload_bike
     fail 'Van is empty' if empty?
-    bikes.each { |bike| return bike }
+    bike = bikes.first
+    bikes.delete(bike)
+    return bike
   end
 
   private

@@ -15,20 +15,24 @@ class DockingStation
     bikes << bike
   end
 
+  def accept_bike(van)
+    fail 'Docking station full' if full?
+    bikes << van.unload_bike
+  end
+
   def release_bike
-    #fail 'No bikes available' if empty?
+    fail 'No working bikes' unless working_bikes.any?
     bike = bikes.find { |bike| bike.working? }
-    raise 'No working bikes available'
     bikes.delete(bike)
     return bike
   end
 
-  def bike_to_collect
-    raise 'No broken bikes' unless broken_bikes.any?
+  def release_bike_to_collect
+    fail 'No broken bikes' unless broken_bikes.any?
     bike = bikes.find { |bike| !bike.working? }
     bikes.delete(bike)
     return bike
-  end 
+  end
 
   private
 
@@ -44,6 +48,8 @@ class DockingStation
     bikes.select { |bike| !bike.working? }
   end
 
-
+  def working_bikes
+    bikes.select { |bike| bike.working? }
+  end
 
 end

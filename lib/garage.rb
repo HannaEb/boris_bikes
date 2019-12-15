@@ -10,17 +10,16 @@ class Garage
     @bikes = []
   end
 
-  def accept(bike)
-    #needs to accept bikes from van
+  def accept_bike(van)
     fail "Garage full" if full?
-    bikes << bike
+    bikes << van.unload_bike
   end
 
-  def bike_to_collect
-    raise 'No working bikes' unless working_bikes.any?
+  def release_bike_to_collect
+    fail 'No working bikes to collect' unless working_bikes.any?
     bike = bikes.find { |bike| bike.working? }
     bikes.delete(bike)
-    return bikes
+    return bike
   end
 
   def repair_bike
